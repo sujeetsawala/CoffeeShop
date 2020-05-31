@@ -10,12 +10,14 @@ import com.google.inject.Singleton;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 @Singleton
 public class OutletAvailabilityCache {
-    private ConcurrentMap<String, List<Composition>> outletAvailabilityCache = new ConcurrentHashMap<>();
+    private ConcurrentMap<OutletName, List<Composition>> outletAvailabilityCache = new ConcurrentHashMap<>();
     private OutletRepository outletRepository;
 
     @Inject
@@ -31,12 +33,12 @@ public class OutletAvailabilityCache {
         List<OutletName> outlets = this.outletRepository.getAllOutlets();
         for(OutletName outlet: outlets) {
             List<Composition> compositions = this.outletRepository.getAvailableCompositionForOutlet(outlet.toString());
-            outletAvailabilityCache.put(outlet.toString(), compositions);
+            outletAvailabilityCache.put(outlet, compositions);
         }
 
     }
 
-    public void add(String key, List<Composition> value) {
+    public void add(OutletName key, List<Composition> value) {
         if (key == null) {
             return;
         }
@@ -48,8 +50,14 @@ public class OutletAvailabilityCache {
     }
 
 
-    public List<Composition> get(String key) {
+    public List<Composition> getValue(OutletName key) {
         return this.outletAvailabilityCache.get(key);
     }
+
+    public List<OutletName> getKeys() {
+        Set<OutletName> outletNames = this.outletAvailabilityCache.keySet();
+        return outletNames.stream().collect(Collectors.toList());
+    }
+
 
 }

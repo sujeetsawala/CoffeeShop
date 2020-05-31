@@ -68,25 +68,39 @@ public class CoffeeShopController {
 
     }
 
-    public List<String> getMenuForOutlet(String outletName) {
-        List<Menus> menus =  this.outletMenuCache.get(outletName);
+
+    public List<String> getAllOutlets() {
+        List<OutletName> outletNames =  this.outletAvailabilityCache.getKeys();
         List<String> output = new ArrayList<>();
-        for(Menus menu : menus) {
-            output.add(menu.toString());
+        if(outletNames != null) {
+            for(OutletName outletName : outletNames) {
+                output.add(outletName.toString());
+            }
         }
+        return output;
+    }
+    public List<String> getMenuForOutlet(String outletName) {
+        List<Menus> menus =  this.outletMenuCache.get(OutletName.valueOf(outletName));
+        List<String> output = new ArrayList<>();
+        if(menus != null) {
+            for(Menus menu : menus) {
+                output.add(menu.toString());
+            }
+        }
+
         return output;
     }
 
     public String getOrder(String outletName, String menuName) {
         try {
-            List<Menus> menus = this.outletMenuCache.get(outletName);
+            List<Menus> menus = this.outletMenuCache.get(OutletName.valueOf(outletName));
             if(menus.contains(Menus.valueOf(menuName))) {
-                List<Composition> menuComposition = this.menuCompositionCache.get(menuName);
-                List<Composition> outletAvailability = this.outletAvailabilityCache.get(outletName);
+                List<Composition> menuComposition = this.menuCompositionCache.get(Menus.valueOf(menuName));
+                List<Composition> outletAvailability = this.outletAvailabilityCache.getValue(OutletName.valueOf(outletName));
                 if(menuComposition.size() > 0 && this.checkIfIngredientsAvailable(OutletName.valueOf(outletName), outletAvailability, menuComposition)) {
                     List<Composition> updatedOutletAvailability = this.removeIngredientQuantity(outletAvailability, menuComposition);
                     this.outletRepository.updateAvailableCompositionForOutlet(outletName, updatedOutletAvailability);
-                    this.outletAvailabilityCache.add(outletName, updatedOutletAvailability);
+                    this.outletAvailabilityCache.add(OutletName.valueOf(outletName), updatedOutletAvailability);
                     return "Order Accepted";
                 }
                 else
@@ -99,47 +113,6 @@ public class CoffeeShopController {
             System.err.println("Unable to process the order: " + e.getMessage());
             return "Error while processing the order";
         }
-    }
-
-    public void addIngredientsToOutlet(String outletName, List<Composition> compositions) {
-        List<Composition> outletAvailability = this.outletAvailabilityCache.get(outletName);
-        List<Composition> updatedOutletAvailability = this.addIngredientQuantity(outletAvailability, compositions);
-        this.outletRepository.updateAvailableCompositionForOutlet(outletName, updatedOutletAvailability);
-        this.outletAvailabilityCache.add(outletName, updatedOutletAvailability);
-    }
-
-    public void getIngredientQuantityInOutlet(String outletName, List<Composition> outletAvailability) {
-        for(int j = 0; j < outletAvailability.size(); j++)
-        {
-            Ingredients outletIngredient = outletAvailability.get(j).getIngredient();
-            if(outletIngredient != null ) {
-                Integer ingredientThreshold = this.ingredientCache.get(outletIngredient);
-                if(outletAvailability.get(j).getIngredientQuantity() < ingredientThreshold)
-                    System.out.println("Ingriedient " + outletIngredient.toString() + " running low at Outlet " + outletName.toString());
-            }
-        }
-    }
-
-    private List<Composition> addIngredientQuantity(List<Composition> outletAvailableComposition, List<Composition> updatedComposition) {
-        List<Composition> finalComposition = new ArrayList<>();
-        for (int j = 0; j < outletAvailableComposition.size(); j++) {
-            Ingredients outletIngredient = outletAvailableComposition.get(j).getIngredient();
-            boolean foundFlag = true;
-            for (int i = 0; i < updatedComposition.size(); i++) {
-                Ingredients updatedIngredient = updatedComposition.get(i).getIngredient();
-                if(outletIngredient != null && updatedIngredient != null && outletIngredient == updatedIngredient) {
-                    int ingredientQuantity = outletAvailableComposition.get(j).getIngredientQuantity() + updatedComposition.get(i).getIngredientQuantity();
-                    Composition composition = new Composition();
-                    composition.setIngredient(outletIngredient);
-                    composition.setIngredientQuantity(ingredientQuantity);
-                    finalComposition.add(composition);
-                    foundFlag = false;
-                }
-            }
-            if(foundFlag)
-                finalComposition.add(outletAvailableComposition.get(j));
-        }
-        return finalComposition;
     }
 
     private List<Composition> removeIngredientQuantity(List<Composition> outletAvailableComposition, List<Composition> updatedComposition) {

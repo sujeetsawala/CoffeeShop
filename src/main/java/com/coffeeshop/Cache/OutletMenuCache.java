@@ -11,13 +11,14 @@ import com.google.inject.Singleton;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 @Singleton
 public class OutletMenuCache {
-    private static final int CACHE_REFRESH_TIME = 57 * 60 * 1000;
-    private ConcurrentMap<String, List<Menus>> outletMenuCache = new ConcurrentHashMap<>();
+    private ConcurrentMap<OutletName, List<Menus>> outletMenuCache = new ConcurrentHashMap<>();
 
 
     private OutletMenuRepository outletMenuRepository;
@@ -33,16 +34,17 @@ public class OutletMenuCache {
        return  !outletMenuCache.isEmpty();
     }
 
-    @Scheduled(fixedDelay = CACHE_REFRESH_TIME, initialDelay = 5)
     public void refreshCache() {
+        System.out.println("OutletMenuCache is loading");
         List<OutletName> outletNames = this.outletRepository.getAllOutlets();
         for(OutletName outletName: outletNames) {
             List<Menus> menus = this.outletMenuRepository.findMenuForOutletName(outletName);
-            this.outletMenuCache.put(outletName.toString(), menus);
+            this.outletMenuCache.put(outletName, menus);
         }
     }
 
-    public List<Menus> get(String key) {
+    public List<Menus> get(OutletName key) {
         return this.outletMenuCache.get(key);
     }
+
 }

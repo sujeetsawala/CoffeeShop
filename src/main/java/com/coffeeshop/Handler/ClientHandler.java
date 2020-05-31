@@ -39,6 +39,12 @@ public class ClientHandler implements Runnable {
                         out.println(result);
                         break;
                     }
+                    case "3": {
+                        out.println("Received order Request for parameters: " + request[0]);
+                        List<String> result = coffeeShopController.getAllOutlets();
+                        out.println(result);
+                        break;
+                    }
                 }
             }
         } catch (Exception e) {

@@ -9,6 +9,7 @@ import com.coffeeshop.Repository.MenuRepository;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,7 +17,7 @@ import java.util.concurrent.ConcurrentMap;
 
 @Singleton
 public class IngredientCache {
-    private static final int CACHE_REFRESH_TIME = 57 * 60 * 1000;
+    private static final int CACHE_REFRESH_TIME = 1 * 1000;
     private ConcurrentMap<Ingredients, Integer> ingredientCache = new ConcurrentHashMap<>();
 
     private IngredientThresholdRepository ingredientThresholdRepository;
@@ -30,8 +31,8 @@ public class IngredientCache {
         return !ingredientCache.isEmpty();
     }
 
-    @Scheduled(fixedDelay = CACHE_REFRESH_TIME, initialDelay = 5)
     public void refreshCache() {
+        System.out.println("Ingredient Cache is loading");
         List<IngredientThreshold> ingredientThresholdList = this.ingredientThresholdRepository.getAllIngredientThreshold();
         for(IngredientThreshold ingredientThreshold: ingredientThresholdList) {
             ingredientCache.put(ingredientThreshold.getIngredientName(), ingredientThreshold.getTresholdQuantity());

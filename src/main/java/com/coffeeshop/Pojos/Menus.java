@@ -2,7 +2,9 @@ package com.coffeeshop.Pojos;
 
 public enum Menus {
     HOT_MILK("HOT_MILK"),
-    HOT_WATER("HOT_WATER");
+    HOT_COFFEE("HOT_COFFEE"),
+    GINGER_TEA("GINGER_TEA"),
+    HOT_TEA("HOT_TEA");
 
     private final String stringValue;
 

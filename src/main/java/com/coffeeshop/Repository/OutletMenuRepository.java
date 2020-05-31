@@ -35,10 +35,12 @@ public class OutletMenuRepository {
         return menus;
     }
 
-    public void addOutletMenuDetails(OutletMenuDetails outletMenuDetails) {
+    public synchronized void addOutletMenuDetails(List<OutletMenuDetails> outletMenuDetailsList) {
         Session session = this.sessionFactoryImpl.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(outletMenuDetails);
+        for(OutletMenuDetails outletMenuDetails: outletMenuDetailsList) {
+            session.persist(outletMenuDetails);
+        }
         session.getTransaction().commit();
         session.close();
     }

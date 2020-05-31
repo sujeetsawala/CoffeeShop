@@ -18,8 +18,7 @@ import java.util.concurrent.ConcurrentMap;
 
 @Singleton
 public class MenuCompositionCache {
-    private static final int CACHE_REFRESH_TIME = 57 * 60 * 1000;
-    private ConcurrentMap<String, List<Composition>> menuCompositionCache = new ConcurrentHashMap<>();
+    private ConcurrentMap<Menus, List<Composition>> menuCompositionCache = new ConcurrentHashMap<>();
 
 
     private MenuRepository menuRepository;
@@ -33,16 +32,16 @@ public class MenuCompositionCache {
         return !menuCompositionCache.isEmpty();
     }
 
-    @Scheduled(fixedDelay = CACHE_REFRESH_TIME, initialDelay = 5)
     public void refreshCache() {
+        System.out.println("MenuCompositionCache is loading");
         List<Menus> menus = this.menuRepository.getAllMenus();
         for(Menus menu: menus) {
             List<Composition> compositions = this.menuRepository.findMenuCompositionByMenu(menu.toString());
-            this.menuCompositionCache.put(menu.toString(), compositions);
+            this.menuCompositionCache.put(menu, compositions);
         }
     }
 
-    public List<Composition> get(String key) {
+    public List<Composition> get(Menus key) {
         return this.menuCompositionCache.get(key);
     }
 }
