@@ -5,6 +5,7 @@ import com.coffeeshop.Cache.MenuCompositionCache;
 import com.coffeeshop.Cache.OutletAvailabilityCache;
 import com.coffeeshop.Cache.OutletMenuCache;
 import com.coffeeshop.Controller.CoffeeShopController;
+import com.coffeeshop.Handler.ClientHandler;
 import com.coffeeshop.Pojos.*;
 import com.coffeeshop.SessionFactory.SessionFactoryImpl;
 import com.google.inject.Guice;
@@ -13,6 +14,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.Query;
+import java.net.ServerSocket;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -182,22 +185,21 @@ public class CoffeeShopServer {
             menuCompositionCache.refreshCache();
 
             System.out.println("Is Cache loaded: " + menuCompositionCache.isCacheLoaded());
-            //coffeeShopController.getOrder("OUTLET1", "HOT_MILK");
 
 
-//            ServerSocket serverSocket = new ServerSocket(PORT);
-//            System.out.println("Server started.\nListening for connections on port : " + PORT + " ...\n");
-//
-//            while (true) {
-//                ClientHandler clientHandler = new ClientHandler(serverSocket.accept());
-//
-//                if (verbose) {
-//                    System.out.println("Connection opened. (" + new Date() + ")");
-//                }
-//
-//                // create dedicated thread to manage the client connection
-//                threadPool.execute(clientHandler);
-//            }
+            ServerSocket serverSocket = new ServerSocket(PORT);
+            System.out.println("Server started.\nListening for connections on port : " + PORT + " ...\n");
+
+            while (true) {
+                ClientHandler clientHandler = new ClientHandler(serverSocket.accept(), coffeeShopController);
+
+                if (verbose) {
+                    System.out.println("Connection opened. (" + new Date() + ")");
+                }
+
+                // create dedicated thread to manage the client connection
+                threadPool.execute(clientHandler);
+            }
         } catch (Exception e) {
             System.err.println("Server Connection error : " + e.getMessage());
         }
