@@ -2,39 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a71cc123-f7fd-445a-ad08-23681f58c082" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/StockController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/StockClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/IngredientCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/IngredientCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/MenuCompositionCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/MenuCompositionCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/OutletAvailabilityCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/OutletAvailabilityCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/OutletMenuCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/OutletMenuCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/CoffeeShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/CoffeeShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Handler/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Handler/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/OutletName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/OutletName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletMenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletMenuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/config/SchedulingConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/coffeeshop/ioc/CoffeeShopModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/IngredientCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/IngredientCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/MenuCompositionCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/MenuCompositionCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/OutletAvailabilityCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/OutletAvailabilityCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/OutletMenuCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Cache/OutletMenuCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/CoffeeShopServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/CoffeeShopServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Controller/CoffeeShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Controller/CoffeeShopController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Handler/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Handler/ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Pojos/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Pojos/Menus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Pojos/OutletName.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Pojos/OutletName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Repository/OutletMenuRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Repository/OutletMenuRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/Repository/OutletRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/coffeeshop/Repository/OutletRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/config/SchedulingConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/ioc/CoffeeShopModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/coffeeshop/StockClient.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="650">
+              <caret line="55" column="48" lean-forward="true" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,10 +34,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="97" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/CoffeeShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
+            <state relative-caret-position="260">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,10 +55,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Handler/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state relative-caret-position="733">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,19 +116,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/Ingredients.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/IngredientThreshold.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -237,15 +211,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/IngredientCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/MenuCompositionCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/OutletMenuCache.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Handler/ClientHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletMenuRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/StockController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Cache/OutletAvailabilityCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/CoffeeShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
       </list>
     </option>
   </component>
@@ -436,22 +410,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32959184" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32959184" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
@@ -726,16 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/StockClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/Menus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -846,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Handler/ClientHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="43" column="80" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/Ingredients.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -866,7 +821,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Pojos/IngredientThreshold.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -893,16 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Repository/OutletRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -910,13 +855,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -943,11 +881,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Controller/CoffeeShopController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="260">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/Handler/ClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/StockClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coffeeshop/CoffeeShopServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="55" column="48" lean-forward="true" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="97" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="97" />
         </state>
       </provider>
     </entry>
