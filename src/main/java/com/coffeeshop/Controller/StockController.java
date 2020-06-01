@@ -28,13 +28,15 @@ public class StockController {
 
     private OutletMenuRepository outletMenuRepository;
 
+    private OutletAvailabilityCache outletAvailabilityCache;
+
     @Inject
     public StockController(SessionFactoryImpl sessionFactoryImpl,
                                 IngredientThresholdRepository ingredientThresholdRepository,
                                 MenuRepository menuRepository,
                                 OutletRepository outletRepository,
-                                OutletMenuRepository outletMenuRepository
-                                ) {
+                                OutletMenuRepository outletMenuRepository,
+                                OutletAvailabilityCache outletAvailabilityCache) {
         this.sessionFactoryImpl = sessionFactoryImpl;
         this.ingredientThresholdRepository = ingredientThresholdRepository;
         this.menuRepository = menuRepository;
@@ -90,7 +92,6 @@ public class StockController {
         outletNames.add(OutletName.OUTLET3.toString());
         outletNames.add(OutletName.OUTLET4.toString());
         outletNames.add(OutletName.OUTLET5.toString());
-        outletNames.add(OutletName.OUTLET6.toString());
 
         this.AddMenusToOutlets(menuNames, compositions, outletNames);
         this.addIngredientsToOutlet(OutletName.OUTLET1.toString(), availableCompositions);
@@ -142,9 +143,12 @@ public class StockController {
                 List<Composition> outletAvailability = this.outletRepository.getAvailableCompositionForOutlet(outletName);
                 List<Composition> updatedOutletAvailability = this.addIngredientQuantity(outletAvailability, compositions);
                 this.outletRepository.updateAvailableCompositionForOutlet(outletName, updatedOutletAvailability);
+                this.outletAvailabilityCache.add(OutletName.valueOf(outletName), updatedOutletAvailability);
+
             }
             else {
                 this.addIngredientsToOutlet(outletName, compositions);
+                this.outletAvailabilityCache.add(OutletName.valueOf(outletName), compositions);
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());

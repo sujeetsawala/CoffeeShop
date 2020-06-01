@@ -149,7 +149,7 @@ public class CoffeeShopController {
                 if(outletIngredient != null && menuIngredient != null && menuIngredient == outletIngredient ) {
                     foundFlag = true;
                     Integer ingredientThreshold = this.ingredientCache.get(menuIngredient);
-                    if(outletAvailability.get(j).getIngredientQuantity() < ingredientThreshold)
+                    if(outletAvailability.get(j).getIngredientQuantity() - menuComposition.get(i).getIngredientQuantity() < ingredientThreshold)
                         System.out.println("Ingredient " + menuIngredient.toString() + " running low at Outlet " + outletName.toString());
                     if(outletAvailability.get(j).getIngredientQuantity() < menuComposition.get(i).getIngredientQuantity()) {
                         checkFlag = false;

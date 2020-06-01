@@ -8,6 +8,7 @@ import com.coffeeshop.Repository.OutletMenuRepository;
 import com.coffeeshop.Repository.OutletRepository;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.Getter;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 @Singleton
+@Getter
 public class OutletMenuCache {
     private ConcurrentMap<OutletName, List<Menus>> outletMenuCache = new ConcurrentHashMap<>();
 

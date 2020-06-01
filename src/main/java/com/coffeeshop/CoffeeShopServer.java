@@ -8,6 +8,10 @@ import com.coffeeshop.Controller.CoffeeShopController;
 import com.coffeeshop.Controller.StockController;
 import com.coffeeshop.Handler.ClientHandler;
 import com.coffeeshop.Pojos.*;
+import com.coffeeshop.Scheduler.IngredientCacheScheduler;
+import com.coffeeshop.Scheduler.MenuCompositionCacheSchedular;
+import com.coffeeshop.Scheduler.OutletAvailabilityCacheScheduler;
+import com.coffeeshop.Scheduler.OutletMenuCacheScheduler;
 import com.coffeeshop.SessionFactory.SessionFactoryImpl;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -18,14 +22,12 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import javax.persistence.Query;
 import java.net.ServerSocket;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class CoffeeShopServer {
+
     static final int PORT = 8080;
     static final boolean verbose = true;
     static ExecutorService threadPool = Executors.newFixedThreadPool(10);
@@ -45,15 +47,16 @@ public class CoffeeShopServer {
             if(flag == 1)
                 stockController.init();
 
-            OutletAvailabilityCache outletAvailabilityCache = injector.getInstance(OutletAvailabilityCache.class);
-            OutletMenuCache outletMenuCache = injector.getInstance(OutletMenuCache.class);
-            IngredientCache ingredientCache = injector.getInstance(IngredientCache.class);
-            MenuCompositionCache menuCompositionCache = injector.getInstance(MenuCompositionCache.class);
 
-            outletAvailabilityCache.refreshCache();
-            outletMenuCache.refreshCache();
-            ingredientCache.refreshCache();
-            menuCompositionCache.refreshCache();
+            MenuCompositionCacheSchedular menuCompositionCacheScheduler = injector.getInstance(MenuCompositionCacheSchedular.class);
+            IngredientCacheScheduler ingredientCacheScheduler = injector.getInstance(IngredientCacheScheduler.class);
+            OutletMenuCacheScheduler outletMenuCacheScheduler = injector.getInstance(OutletMenuCacheScheduler.class);
+            OutletAvailabilityCacheScheduler outletAvailabilityCacheScheduler = injector.getInstance(OutletAvailabilityCacheScheduler.class);
+            Timer timer = new Timer();
+            timer.schedule(menuCompositionCacheScheduler, menuCompositionCacheScheduler.getDELAY_MS(), menuCompositionCacheScheduler.getPERIOD_MS());
+            timer.schedule(ingredientCacheScheduler, ingredientCacheScheduler.getDELAY_MS(), ingredientCacheScheduler.getPERIOD_MS());
+            timer.schedule(outletMenuCacheScheduler, outletMenuCacheScheduler.getDELAY_MS(), outletMenuCacheScheduler.getPERIOD_MS());
+            timer.schedule(outletAvailabilityCacheScheduler, outletAvailabilityCacheScheduler.getDELAY_MS());
 
             ServerSocket serverSocket = new ServerSocket(PORT);
 
