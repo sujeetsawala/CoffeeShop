@@ -6,6 +6,11 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+ *  Client for order from outlets
+ *  author: Sujeet Sawala
+ */
+
 public class Client {
     static final String ServerHostName = "localhost";
     static final int ServerPort = 8080;
@@ -22,15 +27,14 @@ public class Client {
                     System.out.println("1. Enter outletNo and menu item to be ordered");
                     System.out.println("2. Get Menu At Outlet");
                     System.out.println("3. All Outlets");
-                    System.out.println("4. Quit");
 
-                    // Client should print input in the form 3 Quit, 1 OutletName MenuName, 2 menuName
+                    /**
+                     *  Order Input: 1 OutletName MenuName
+                     *  Get Menu Input: 2 OutletName
+                     *  Get All Outlets: 3
+                     */
 
                     String request = keyboard.readLine();
-                    String input = request;
-                    String[] splitInputs = request.split("\\s+");
-                    if(splitInputs[0] == "4")
-                        break;
                     out.println(request);
                     System.out.println(in.readLine());
                 }
