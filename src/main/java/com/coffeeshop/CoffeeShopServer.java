@@ -28,6 +28,7 @@ public class CoffeeShopServer {
     static final int PORT = 8080;
     static final boolean verbose = true;
     static ExecutorService threadPool = Executors.newFixedThreadPool(10);
+    static ExecutorService threadPool1 = Executors.newFixedThreadPool(10);
 
 
 
@@ -91,7 +92,7 @@ public class CoffeeShopServer {
             System.out.println(outletAvailabilityCache.isCacheLoaded());
 
             while (true) {
-                threadPool.execute(stockHandler);
+                threadPool1.execute(stockHandler);
                 ClientHandler clientHandler = new ClientHandler(serverSocket.accept(), coffeeShopController);
 
                 if (verbose) {
