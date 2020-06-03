@@ -13,8 +13,8 @@ import java.util.TimerTask;
 @Getter
 public class IngredientCacheScheduler extends TimerTask {
     private IngredientCache ingredientCache;
-    private final int PERIOD_MS = 60000;
-    private final int DELAY_MS = 1000;
+    private final int PERIOD_MS = 60 * 60 * 1000;
+    private final int DELAY_MS = 5;
 
     @Inject
     public IngredientCacheScheduler(IngredientCache ingredientCache) {

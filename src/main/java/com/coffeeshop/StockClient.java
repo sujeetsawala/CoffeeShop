@@ -6,12 +6,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-/**
- *  Client for order from outlets
- *  author: Sujeet Sawala
- */
-
-public class Client {
+public class StockClient {
     static final String ServerHostName = "localhost";
     static final int ServerPort = 8080;
 
@@ -23,15 +18,15 @@ public class Client {
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Please select one of the following options");
             try {
-
                 while (true) {
-                    System.out.println("1. Enter outletNo and menu item to be ordered");
-                    System.out.println("2. Get Menu At Outlet");
-                    System.out.println("3. All Outlets");
+
+                    System.out.println("1. Get All Outlets");
+                    System.out.println("2. Add ingredients to an outlet");
+                    System.out.println("3. Update ingredient threshold");
                     /**
-                     *  Order Input: 1 OutletName MenuName
-                     *  Get Menu Input: 2 OutletName
-                     *  Get All Outlets: 3
+                     *  Add ingredients to an outlet: 2 outletName [Composition]
+                     *  Update ingredient threshold: 3 IngredientName IngredientQuantity
+                     *  Get All Outlets: 1
                      */
 
                     String request = keyboard.readLine();

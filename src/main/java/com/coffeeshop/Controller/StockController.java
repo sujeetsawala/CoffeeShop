@@ -42,6 +42,7 @@ public class StockController {
         this.menuRepository = menuRepository;
         this.outletRepository = outletRepository;
         this.outletMenuRepository = outletMenuRepository;
+        this.outletAvailabilityCache = outletAvailabilityCache;
 
     }
 
@@ -105,6 +106,17 @@ public class StockController {
         this.addIngredientThreshold(Ingredients.TEA_LEAVES.toString(), 15);
     }
 
+    public List<String> getAllOutlets() {
+        List<OutletName> outletNames =  this.outletAvailabilityCache.getKeys();
+        List<String> output = new ArrayList<>();
+        if(outletNames != null) {
+            for(OutletName outletName : outletNames) {
+                output.add(outletName.toString());
+            }
+        }
+        return output;
+    }
+
     public void AddMenusToOutlets(List<String> menuNames, List<Composition> menuComposition, List<String> outlets) {
         List<MenuDetails> menuDetailsList = new ArrayList<>();
         List<OutletMenuDetails> outletMenuDetailsList = new ArrayList<>();
@@ -135,11 +147,13 @@ public class StockController {
         outletDetails.setOutletName(OutletName.valueOf(outletName));
         outletDetails.setAvailableComposition(compositions);
         this.outletRepository.addOutletAvailabiltyDetails(outletDetails);
+        this.outletAvailabilityCache.add(OutletName.valueOf(outletName), compositions);
+
     }
 
     public void updateIngredientsToOutlet(String outletName, List<Composition> compositions) {
         try {
-            if(this.outletRepository.isOutletPresent(outletName)) {
+            if(this.outletAvailabilityCache.getValue(OutletName.valueOf(outletName)).size() > 0) {
                 List<Composition> outletAvailability = this.outletRepository.getAvailableCompositionForOutlet(outletName);
                 List<Composition> updatedOutletAvailability = this.addIngredientQuantity(outletAvailability, compositions);
                 this.outletRepository.updateAvailableCompositionForOutlet(outletName, updatedOutletAvailability);
@@ -148,7 +162,6 @@ public class StockController {
             }
             else {
                 this.addIngredientsToOutlet(outletName, compositions);
-                this.outletAvailabilityCache.add(OutletName.valueOf(outletName), compositions);
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());

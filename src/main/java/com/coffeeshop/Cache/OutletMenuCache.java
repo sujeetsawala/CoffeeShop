@@ -33,7 +33,7 @@ public class OutletMenuCache {
     }
 
     public boolean isCacheLoaded() {
-       return  !outletMenuCache.isEmpty();
+       return !outletMenuCache.isEmpty();
     }
 
     public void refreshCache() {

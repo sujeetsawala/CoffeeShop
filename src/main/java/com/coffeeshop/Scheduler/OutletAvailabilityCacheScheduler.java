@@ -13,7 +13,7 @@ import java.util.TimerTask;
 @Getter
 public class OutletAvailabilityCacheScheduler extends TimerTask {
     private OutletAvailabilityCache outletAvailabilityCache;
-    private final int DELAY_MS = 1000;
+    private final int DELAY_MS = 5;
 
     @Inject
     public OutletAvailabilityCacheScheduler(OutletAvailabilityCache outletAvailabilityCache) {

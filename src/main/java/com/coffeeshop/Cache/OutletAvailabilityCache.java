@@ -30,13 +30,12 @@ public class OutletAvailabilityCache {
     }
 
     public void refreshCache() {
-        System.out.println("OutletAvailabilityCache is loading");
+        System.out.println("OutletAvailabilityCache is loading: ");
         List<OutletName> outlets = this.outletRepository.getAllOutlets();
         for(OutletName outlet: outlets) {
             List<Composition> compositions = this.outletRepository.getAvailableCompositionForOutlet(outlet.toString());
             outletAvailabilityCache.put(outlet, compositions);
         }
-
     }
 
     public void add(OutletName key, List<Composition> value) {

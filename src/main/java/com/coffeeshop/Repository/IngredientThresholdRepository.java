@@ -33,7 +33,13 @@ public class IngredientThresholdRepository {
     public synchronized IngredientThreshold addIngredientThreshold(IngredientThreshold ingredientThreshold) {
         Session session = this.sessionFactoryImpl.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(ingredientThreshold);
+        Query query = session.createQuery(("select t from IngredientThreshold t where INGREDIENT = :ingredient"), IngredientThreshold.class).setParameter("ingredient", ingredientThreshold.getIngredientName().toString());
+        List<IngredientThreshold> ingredientThresholdList = (List<IngredientThreshold>)query.getResultList();
+        if(!ingredientThresholdList.isEmpty())
+            ingredientThresholdList.get(0).setTresholdQuantity(ingredientThreshold.getTresholdQuantity());
+        else
+            ingredientThresholdList.add(ingredientThreshold);
+        session.save(ingredientThresholdList.get(0));
         session.getTransaction().commit();
         session.close();
 
