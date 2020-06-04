@@ -89,7 +89,6 @@ public class CoffeeShopServer {
                 System.out.println("Connection opened for StockHandler. (" + new Date() + ")");
             }
 
-            System.out.println(outletAvailabilityCache.isCacheLoaded());
 
             while (true) {
                 threadPool1.execute(stockHandler);

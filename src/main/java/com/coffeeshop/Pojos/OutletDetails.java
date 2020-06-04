@@ -13,7 +13,7 @@ import java.util.Collection;
 @Table(name = "OUTLET_DETAILS")
 public class OutletDetails {
     @Id
-    @Column(name = "OUTLET_NAME", unique = true)
+    @Column(name = "OUTLET_NAME")
     @Enumerated(value = EnumType.STRING)
     private OutletName outletName;
 

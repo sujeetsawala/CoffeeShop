@@ -13,7 +13,7 @@ import java.util.HashSet;
 @Setter
 public class OutletMenuDetails {
     @Id
-    @Column(name = "OUTLET_NAME", unique = true)
+    @Column(name = "OUTLET_NAME")
     @Enumerated(value = EnumType.STRING)
     private OutletName outletName;
 

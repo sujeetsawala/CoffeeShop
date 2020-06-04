@@ -15,7 +15,7 @@ import java.util.HashSet;
 public class MenuDetails {
 
     @Id
-    @Column(name="MENU_NAME", unique = true)
+    @Column(name="MENU_NAME")
     @Enumerated(EnumType.STRING)
     private Menus menuName;
 
